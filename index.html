@@ -38,7 +38,8 @@ if (navigator.mediaDevices.getUserMedia) {
       console.log("Algo ha ido mal");
     });
 }
-function openFullscreen() {
+function pantallaCompleta() {
+  console.log('Entrando en pantalla completa');
   if (video.requestFullscreen) {
     video.requestFullscreen();
   } else if (video.webkitRequestFullscreen) {
