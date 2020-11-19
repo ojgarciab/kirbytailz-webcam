@@ -20,6 +20,8 @@
     z-index: -1;
   }
   #chatdevoz {
+    width: 100vw;
+    height: 100vh;
     border: 0px;
   }
   #chatdevoz.ocultar {
@@ -34,7 +36,7 @@
  
 <body>
  <video autoplay="true" onclick="pantallaCompleta();"></video>
- <button onclick="ocultarChat();" id="ocultarchat">Ocultar chat</button>
+ <button onclick="ocultarChat();" id="ocultarchat">Ocultar chat</button><br/>
  <iframe src="https://www.speechchat.com/" id="chatdevoz"></iframe>
 <script>
 /* Buscamos el elemento de vídeo */
