@@ -23,7 +23,7 @@
 </head>
  
 <body>
-<video autoplay="true"></video>
+<video autoplay="true" onclick="pantallaCompleta();"></video>
 <script>
 /* Buscamos el elemento de vídeo */
 var video = document.querySelector("video");
@@ -37,6 +37,15 @@ if (navigator.mediaDevices.getUserMedia) {
     .catch(function () {
       console.log("Algo ha ido mal");
     });
+}
+function openFullscreen() {
+  if (video.requestFullscreen) {
+    video.requestFullscreen();
+  } else if (video.webkitRequestFullscreen) {
+    video.webkitRequestFullscreen();
+  } else if (video.msRequestFullscreen) {
+    video.msRequestFullscreen();
+  }
 }
 </script>
 </body>
