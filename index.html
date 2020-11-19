@@ -19,14 +19,28 @@
     position: absolute;
     z-index: -1;
   }
+  #chatdevoz {
+    border: 0px;
+  }
+  #chatdevoz.ocultar {
+    width: 2px;
+    height: 2px;
+  }
+  ocultarchat.ocultar {
+    display: none;
+  }
 </style>
 </head>
  
 <body>
-<video autoplay="true" onclick="pantallaCompleta();"></video>
+ <video autoplay="true" onclick="pantallaCompleta();"></video>
+ <button onclick="ocultarChat();" id="ocultarchat">Ocultar chat</button>
+ <iframe src="https://www.speechchat.com/" id="chatdevoz"></iframe>
 <script>
 /* Buscamos el elemento de vídeo */
 var video = document.querySelector("video");
+var ocultarchat = document.querySelector("#ocultarchat");
+var chatdevoz = document.querySelector("#chatdevoz");
 
 /* Si el navegador lo soporta, obtenemos el elemento de cámara */
 if (navigator.mediaDevices.getUserMedia) {
@@ -47,6 +61,11 @@ function pantallaCompleta() {
   } else if (video.msRequestFullscreen) {
     video.msRequestFullscreen();
   }
+}
+function ocultarChat() {
+  console.log('Ocultando chat de voz');
+  ocultarchat.classList.add('ocultar');
+  chatdevoz.classList.add('ocultar');
 }
 </script>
 </body>
