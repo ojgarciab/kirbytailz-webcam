@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ver cámara a pantalla completa</title>
+ 
+<style>
+  body {
+    /* Quitamos márgenes a la página */
+    margin: 0px;
+  }
+  video {
+    /* El vídeo ocupará TODA la pantalla */
+    width: 100vw;
+    height: 100vh;
+    /* Mejor relleno */
+    object-fit: cover;
+    /* Enviamos el componente al fondo */
+    position: absolute;
+    z-index: -1;
+  }
+</style>
+</head>
+ 
+<body>
+<video autoplay="true"></video>
+<script>
+/* Buscamos el elemento de vídeo */
+var video = document.querySelector("video");
+
+/* Si el navegador lo soporta, obtenemos el elemento de cámara */
+if (navigator.mediaDevices.getUserMedia) {
+  navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
+    .then(function (stream) {
+      video.srcObject = stream;
+    })
+    .catch(function () {
+      console.log("Algo ha ido mal");
+    });
+}
+</script>
+</body>
+</html>
